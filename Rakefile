@@ -4,8 +4,7 @@ task :default => [:clean, :build, :serve]
 
 desc 'Builds the public folder'
 task :build do
-  mkdir_p 'public'
-  cp 'client/sample.html', 'public/sample.html'
+  cp_r 'client', 'public'
 
   uglified, source_map = Uglifier.new.compile_with_map(File.read('client/javascript.js'))
 
