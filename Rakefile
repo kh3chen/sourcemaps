@@ -21,7 +21,8 @@ end
 desc 'Serves the public folder'
 task :serve do
   Dir.chdir('./public') do
-    system 'pwd'
+    puts "Serving from: #{`pwd`}"
+    system 'kill_processes_listening_on 8888'
     system 'python -m SimpleHTTPServer 8888'
   end
 end
