@@ -6,10 +6,10 @@ desc 'Builds the public folder'
 task :build do
   cp_r 'client', 'public'
 
-  uglified, source_map = Uglifier.new.compile_with_map(File.read('client/javascript.js'))
+  uglified, source_map = Uglifier.new.compile_with_map(File.read('client/script.js'))
 
-  File.write('public/javascript.min.js', uglified)
-  File.write('public/javascript.js.map', source_map)
+  File.write('public/script.min.js', uglified)
+  File.write('public/script.js.map', source_map)
 end
 
 desc 'Cleans the public folder'
