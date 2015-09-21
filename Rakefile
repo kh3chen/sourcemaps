@@ -6,7 +6,8 @@ desc 'Builds the public folder'
 task :build do
   cp_r 'client', 'public'
 
-  uglified, source_map = Uglifier.new.compile_with_map(File.read('client/script.js'))
+  uglified, source_map = Uglifier.compile_with_map(File.read('client/script.js'),
+    :compress => { :drop_debugger => false }, :source_filename => 'script.js', :source_map_url => 'script.js.map')
 
   File.write('public/script.min.js', uglified)
   File.write('public/script.js.map', source_map)
