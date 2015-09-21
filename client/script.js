@@ -5,4 +5,6 @@ function hello() {
   alert(greeting);
   debugger;
   alert(confirmation);
+
+  throw "Another opportunity to see sourcemaps in action";
 }
